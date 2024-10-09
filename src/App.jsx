@@ -1,9 +1,17 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import Panels from "./panels"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Panels from "./panels";
+import Answers from "./answers"; // Example additional component
+
 export default function App() {
   return (
     <ChakraProvider>
-      <Panels />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Panels />} />
+          <Route path="/answers" element={<Answers />} />
+        </Routes>
+      </Router>
     </ChakraProvider>
   );
 }

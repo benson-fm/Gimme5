@@ -23,7 +23,7 @@ const buttonVariants = {
   closed: { opacity: 0 },
 };
 
-export default function Panels() {
+export default function Answers() {
   const tabData = {
     Q1: {
       question: "What are the 5 most spoken dialects in the Philippines?",
@@ -108,20 +108,8 @@ export default function Panels() {
     // You can add more tabs/questions here...
   };
 
-  const [clicked, setClicked] = useState({});
   const [isOpen, setIsOpen] = useState(true);
   const [activeTab, setActiveTab] = useState(0); // Track the active tab
-
-  // Handle click to toggle between number and word
-  const handleClick = (tab, num) => {
-    setClicked((prevClicked) => ({
-      ...prevClicked,
-      [tab]: {
-        ...prevClicked[tab],
-        [num]: !prevClicked[tab]?.[num], // Toggle between true and false for specific tab and number
-      },
-    }));
-  };
 
   // Handle tab change to trigger animation
   const handleTabChange = (index) => {
@@ -167,18 +155,11 @@ export default function Panels() {
                     {Object.keys(tabData[tabKey].answers).map((num) => (
                       <motion.div
                         key={num}
-                        onClick={() => handleClick(tabKey, num)}
-                        className={`flex cursor-pointer text-2xl my-2 w-1/2 justify-center items-center h-16 rounded-xl ${
-                            clicked[tabKey]?.[num]
-                              ? "border-green-500 text-green-500 bg-white border-2" // Color when clicked
-                              : "bg-[#FAC80A] text-black" // Default color
-                          }`}
+                        className="flex cursor-pointer text-2xl my-2 w-1/2 justify-center items-center h-16 rounded-xl border-green-500 text-green-500 bg-white border-2"
                         variants={buttonVariants} // Apply individual button animation
                         whileHover={{ scale: 1.1 }}
                       >
-                        {clicked[tabKey]?.[num]
-                          ? tabData[tabKey].answers[num]
-                          : num}
+                        {tabData[tabKey].answers[num]} {/* Always show the answer */}
                       </motion.div>
                     ))}
                   </motion.div>
