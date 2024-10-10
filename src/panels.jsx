@@ -25,6 +25,17 @@ const buttonVariants = {
 
 export default function Panels() {
   const tabData = {
+    Ex: {
+      question: "What are the 5 filipino organizations at UCI",
+      answers: {
+        1: "Kababayan",
+        2: "PUSO",
+        3: "PASS",
+        4: "FUSION",
+        5: "Alyansa"
+      }
+    },
+    
     Q1: {
       question: "What are the 5 most spoken dialects in the Philippines?",
       answers: {
@@ -96,11 +107,11 @@ export default function Panels() {
       },
     },
     Q8: {
-      question: "Who are the top 5 most famous Fil-Am artist in POP Culture?",
+      question: "Who are 5 famous Fil-Am music artist?",
       answers: {
         1: "Bruno Mars",
         2: "Olivia Rodrigo",
-        3: "Grent Perez",
+        3: "Jeremy Passion",
         4: "Steve Lacy",
         5: "HER",
       },
